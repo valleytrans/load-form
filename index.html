@@ -56,13 +56,30 @@ button:hover { opacity: .9; }
 
 <!-- Load Dimensions -->
 <fieldset>
-<legend>Load Dimensions</legend>
-<div class="grid grid-4">
-<div><label>Overall Length</label><input name="Overall Length" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-<div><label>Trailer Length</label><input name="Trailer Length" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-<div><label>Overall Width</label><input name="Overall Width" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-<div><label>Overall Height</label><input name="Overall Height" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-</div>
+  <legend>Load Dimensions</legend>
+  <div class="grid grid-4">
+
+    <div>
+      <label>Overall Length <span class="req">*</span></label>
+      <input name="Overall Length" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+
+    <div>
+      <label>Trailer Length</label>
+      <input name="Trailer Length" pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+
+    <div>
+      <label>Overall Width <span class="req">*</span></label>
+      <input name="Overall Width" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+
+    <div>
+      <label>Overall Height <span class="req">*</span></label>
+      <input name="Overall Height" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+
+  </div>
 </fieldset>
 
 <!-- Truck -->
