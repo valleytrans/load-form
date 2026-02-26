@@ -8,7 +8,6 @@
 <style>
 body { font-family: Arial, system-ui, sans-serif; margin: 20px; max-width: 1100px; }
 h1 { margin-bottom: 5px; }
-.hint { margin-bottom: 18px; color: #555; }
 fieldset { border: 1px solid #bbb; border-radius: 10px; padding: 14px; margin: 16px 0; }
 legend { font-weight: 700; padding: 0 8px; }
 label { display: block; font-weight: 700; margin-top: 10px; }
@@ -26,10 +25,8 @@ button:hover { opacity: .9; }
 <body>
 
 <h1>Driver Load Details</h1>
-<p class="hint">Fields marked <span class="req">*</span> are required.</p>
 
 <form action="https://formspree.io/f/xnjawlpk" method="POST">
-
 <input type="hidden" name="_subject" value="New Load Submission" />
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -37,30 +34,11 @@ button:hover { opacity: .9; }
 <fieldset>
 <legend>Trip Info</legend>
 <div class="grid">
-<div>
-<label>Name</label>
-<input name="Name" />
-</div>
-
-<div>
-<label>Date Loading <span class="req">*</span></label>
-<input type="date" name="Date Loading" required />
-</div>
-
-<div>
-<label>Trip #</label>
-<input name="Trip Number" />
-</div>
-
-<div>
-<label>Origin <span class="req">*</span></label>
-<input name="Origin" required />
-</div>
-
-<div>
-<label>Destination <span class="req">*</span></label>
-<input name="Destination" required />
-</div>
+<div><label>Name</label><input name="Name" /></div>
+<div><label>Date Loading</label><input type="date" name="Date Loading" /></div>
+<div><label>Trip #</label><input name="Trip Number" /></div>
+<div><label>Origin</label><input name="Origin" /></div>
+<div><label>Destination</label><input name="Destination" /></div>
 </div>
 </fieldset>
 
@@ -68,143 +46,87 @@ button:hover { opacity: .9; }
 <fieldset>
 <legend>Load Info</legend>
 <div class="grid grid-4">
-
-<div>
-<label>Load Make <span class="req">*</span></label>
-<input name="Load Make" required />
+<div><label>Load Make</label><input name="Load Make" /></div>
+<div><label>Load Model</label><input name="Load Model" /></div>
+<div><label>Serial Number</label><input name="Serial Number" /></div>
 </div>
-
-<div>
-<label>Load Model <span class="req">*</span></label>
-<input name="Load Model" required />
-</div>
-
-<div>
-<label>Serial Number</label>
-<input name="Serial Number" />
-</div>
-
-</div>
-
-<label>Load Description <span class="req">*</span></label>
-<textarea name="Load Description" required></textarea>
-
+<label>Load Description</label>
+<textarea name="Load Description"></textarea>
 </fieldset>
 
 <!-- Load Dimensions -->
 <fieldset>
 <legend>Load Dimensions</legend>
 <div class="grid grid-4">
-
-<div>
-<label>Overall Length <span class="req">*</span></label>
-<input name="Overall Length" required pattern="^\d{1,3}-\d{1,2}$" />
-</div>
-
-<div>
-<label>Trailer Length <span class="req">*</span></label>
-<input name="Trailer Length" required pattern="^\d{1,3}-\d{1,2}$" />
-</div>
-
-<div>
-<label>Overall Width <span class="req">*</span></label>
-<input name="Overall Width" required pattern="^\d{1,3}-\d{1,2}$" />
-</div>
-
-<div>
-<label>Overall Height <span class="req">*</span></label>
-<input name="Overall Height" required pattern="^\d{1,3}-\d{1,2}$" />
-</div>
-
+<div><label>Overall Length</label><input name="Overall Length" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>Trailer Length</label><input name="Trailer Length" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>Overall Width</label><input name="Overall Width" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>Overall Height</label><input name="Overall Height" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
 </div>
 </fieldset>
 
 <!-- Truck -->
 <fieldset>
-<legend>Truck (Required)</legend>
+<legend>Truck</legend>
 <div class="grid grid-4">
-
-<div>
-<label>Truck Number <span class="req">*</span></label>
-<input name="Truck Number" required />
+<div><label>Truck Number <span class="req">*</span></label><input name="Truck Number" required /></div>
+<div><label>Truck Year</label><input name="Truck Year" /></div>
+<div><label>Truck Make</label><input name="Truck Make" /></div>
+<div><label>Truck License</label><input name="Truck License" /></div>
+<div><label>Truck VIN</label><input name="Truck VIN" minlength="17" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" /></div>
 </div>
+</fieldset>
 
-<div>
-<label>Truck Year <span class="req">*</span></label>
-<input name="Truck Year" required />
-</div>
-
-<div>
-<label>Truck Make <span class="req">*</span></label>
-<input name="Truck Make" required />
-</div>
-
-<div>
-<label>Truck License <span class="req">*</span></label>
-<input name="Truck License" required />
-</div>
-
-<div>
-<label>Truck VIN</label>
-<input name="Truck VIN" minlength="17" maxlength="17"
-pattern="[A-HJ-NPR-Z0-9]{17}" />
-</div>
-
+<!-- Jeep -->
+<fieldset>
+<legend>Jeep</legend>
+<div class="grid grid-4">
+<div><label>Jeep Number</label><input name="Jeep Number" /></div>
+<div><label>Jeep Year</label><input name="Jeep Year" /></div>
+<div><label>Jeep Make</label><input name="Jeep Make" /></div>
+<div><label>Jeep License</label><input name="Jeep License" /></div>
+<div><label>Jeep VIN</label><input name="Jeep VIN" minlength="17" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" /></div>
 </div>
 </fieldset>
 
 <!-- Trailer -->
 <fieldset>
-<legend>Trailer (Required)</legend>
+<legend>Trailer</legend>
 <div class="grid grid-4">
-
-<div>
-<label>Trailer Number <span class="req">*</span></label>
-<input name="Trailer Number" required />
-</div>
-
-<div>
-<label>Trailer Year <span class="req">*</span></label>
-<input name="Trailer Year" required />
-</div>
-
-<div>
-<label>Trailer Make <span class="req">*</span></label>
-<input name="Trailer Make" required />
-</div>
-
-<div>
-<label>Trailer License <span class="req">*</span></label>
-<input name="Trailer License" required />
-</div>
-
-<div>
-<label>Trailer VIN</label>
-<input name="Trailer VIN" minlength="17" maxlength="17"
-pattern="[A-HJ-NPR-Z0-9]{17}" />
-</div>
-
+<div><label>Trailer Number <span class="req">*</span></label><input name="Trailer Number" required /></div>
+<div><label>Trailer Year</label><input name="Trailer Year" /></div>
+<div><label>Trailer Make</label><input name="Trailer Make" /></div>
+<div><label>Trailer License</label><input name="Trailer License" /></div>
+<div><label>Trailer VIN</label><input name="Trailer VIN" minlength="17" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" /></div>
 </div>
 </fieldset>
 
-<!-- Axles -->
+<!-- Booster -->
+<fieldset>
+<legend>Booster</legend>
+<div class="grid grid-4">
+<div><label>Booster Number</label><input name="Booster Number" /></div>
+<div><label>Booster Year</label><input name="Booster Year" /></div>
+<div><label>Booster Make</label><input name="Booster Make" /></div>
+<div><label>Booster License</label><input name="Booster License" /></div>
+<div><label>Booster VIN</label><input name="Booster VIN" minlength="17" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" /></div>
+</div>
+</fieldset>
+
+<!-- Axle Spacings -->
 <fieldset>
 <legend>Axle Spacings</legend>
 <div class="grid">
-
-<div><label>Axle 1 <span class="req">*</span></label><input name="Axle 1" required pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 2 <span class="req">*</span></label><input name="Axle 2" required pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 3 <span class="req">*</span></label><input name="Axle 3" required pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 4 <span class="req">*</span></label><input name="Axle 4" required pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 5 <span class="req">*</span></label><input name="Axle 5" required pattern="^\d{1,3}-\d{1,2}$" /></div>
-
-<div><label>Axle 6</label><input name="Axle 6" pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 7</label><input name="Axle 7" pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 8</label><input name="Axle 8" pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 9</label><input name="Axle 9" pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 10</label><input name="Axle 10" pattern="^\d{1,3}-\d{1,2}$" /></div>
-<div><label>Axle 11</label><input name="Axle 11" pattern="^\d{1,3}-\d{1,2}$" /></div>
-
+<div><label>1-2</label><input name="1-2" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>2-3</label><input name="2-3" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>3-4</label><input name="3-4" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>4-5</label><input name="4-5" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>5-6</label><input name="5-6" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>6-7</label><input name="6-7" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>7-8</label><input name="7-8" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>8-9</label><input name="8-9" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>9-10</label><input name="9-10" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+<div><label>10-11</label><input name="10-11" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
 </div>
 </fieldset>
 
@@ -212,5 +134,7 @@ pattern="[A-HJ-NPR-Z0-9]{17}" />
 
 </form>
 
+</body>
+</html>
 </body>
 </html>
