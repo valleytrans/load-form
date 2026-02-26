@@ -33,10 +33,10 @@ button:hover { opacity: .9; }
 <input type="hidden" name="_subject" value="New Load Submission" />
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
+<!-- Trip Info -->
 <fieldset>
 <legend>Trip Info</legend>
 <div class="grid">
-
 <div>
 <label>Name <span class="req">*</span></label>
 <input name="Name" required />
@@ -61,16 +61,12 @@ button:hover { opacity: .9; }
 <label>Destination <span class="req">*</span></label>
 <input name="Destination" required />
 </div>
-
 </div>
-
-<label>Load Description <span class="req">*</span></label>
-<textarea name="Load Description" required></textarea>
-
 </fieldset>
 
+<!-- Load Info -->
 <fieldset>
-<legend>Load Identifiers & Dimensions</legend>
+<legend>Load Info</legend>
 <div class="grid grid-4">
 
 <div>
@@ -87,6 +83,18 @@ button:hover { opacity: .9; }
 <label>Serial Number</label>
 <input name="Serial Number" />
 </div>
+
+</div>
+
+<label>Load Description <span class="req">*</span></label>
+<textarea name="Load Description" required></textarea>
+
+</fieldset>
+
+<!-- Load Dimensions -->
+<fieldset>
+<legend>Load Dimensions</legend>
+<div class="grid grid-4">
 
 <div>
 <label>Overall Length <span class="req">*</span></label>
@@ -111,6 +119,7 @@ button:hover { opacity: .9; }
 </div>
 </fieldset>
 
+<!-- Truck -->
 <fieldset>
 <legend>Truck (Required)</legend>
 <div class="grid grid-4">
@@ -144,6 +153,7 @@ pattern="[A-HJ-NPR-Z0-9]{17}" />
 </div>
 </fieldset>
 
+<!-- Trailer -->
 <fieldset>
 <legend>Trailer (Required)</legend>
 <div class="grid grid-4">
@@ -177,6 +187,7 @@ pattern="[A-HJ-NPR-Z0-9]{17}" />
 </div>
 </fieldset>
 
+<!-- Axles -->
 <fieldset>
 <legend>Axle Spacings</legend>
 <div class="grid">
