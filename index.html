@@ -18,6 +18,8 @@ textarea { min-height: 90px; resize: vertical; }
 button { margin-top: 12px; padding: 14px; border: 0; border-radius: 10px; font-weight: 800; cursor: pointer; background: #111; color: #fff; }
 button:hover { opacity: .9; }
 .req { color: #b00020; margin-left: 6px; }
+.mode-row label { font-weight: 700; display: inline-flex; align-items: center; gap: 8px; margin-top: 0; }
+.mode-row input[type="radio"] { width: auto; margin: 0; }
 @media (max-width: 900px) { .grid, .grid-4 { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -180,11 +182,11 @@ button:hover { opacity: .9; }
     <div><label>10-11</label><input name="10-11" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
   </div>
 </fieldset>
-  
+
 <!-- Axle Weight Entry Mode -->
 <fieldset>
   <legend>Axle Weight Entry</legend>
-  <div class="grid">
+  <div class="grid mode-row">
     <div>
       <label>
         <input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked>
@@ -200,35 +202,7 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<script>
-(function () {
-  function toggleAxleWeightMode() {
-    const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
-    const perAxle = document.getElementById("axle-weights-per-axle");
-    const byGroup = document.getElementById("axle-weights-by-group");
-    if (!perAxle || !byGroup) return;
-
-    if (mode === "By Group") {
-      perAxle.style.display = "none";
-      byGroup.style.display = "";
-      // Optional: clear hidden inputs so they don't submit junk
-      perAxle.querySelectorAll("input").forEach(i => i.value = "");
-    } else {
-      byGroup.style.display = "none";
-      perAxle.style.display = "";
-      byGroup.querySelectorAll("input").forEach(i => i.value = "");
-    }
-  }
-
-  document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
-    r.addEventListener("change", toggleAxleWeightMode);
-  });
-
-  toggleAxleWeightMode();
-})();
-</script>
-
-<!-- Axle Weights -->
+<!-- Axle Weights (Per Axle) -->
 <fieldset id="axle-weights-per-axle">
   <legend>Axle Weights</legend>
   <div class="grid grid-4">
@@ -246,31 +220,44 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Axle Weight Groups (By Group) -->
+<!-- Axle Weights (By Group) -->
 <fieldset id="axle-weights-by-group" style="display:none;">
   <legend>Axle Weight Groups</legend>
   <div class="grid grid-4">
-    <div><label>Group 1 Name</label><input name="Group 1 Name" /></div>
-    <div><label>Group 1 Axles (e.g., 1-3)</label><input name="Group 1 Axles" /></div>
-    <div><label>Group 1 Weight</label><input name="Group 1 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-
-    <div><label>Group 2 Name</label><input name="Group 2 Name" /></div>
-    <div><label>Group 2 Axles</label><input name="Group 2 Axles" /></div>
-    <div><label>Group 2 Weight</label><input name="Group 2 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-
-    <div><label>Group 3 Name</label><input name="Group 3 Name" /></div>
-    <div><label>Group 3 Axles</label><input name="Group 3 Axles" /></div>
-    <div><label>Group 3 Weight</label><input name="Group 3 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-
-    <div><label>Group 4 Name</label><input name="Group 4 Name" /></div>
-    <div><label>Group 4 Axles</label><input name="Group 4 Axles" /></div>
-    <div><label>Group 4 Weight</label><input name="Group 4 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-
-    <div><label>Group 5 Name</label><input name="Group 5 Name" /></div>
-    <div><label>Group 5 Axles</label><input name="Group 5 Axles" /></div>
-    <div><label>Group 5 Weight</label><input name="Group 5 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Steers Weight</label><input name="Steers Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Drives Weight</label><input name="Drives Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Jeep Weight</label><input name="Jeep Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Trailer Weight</label><input name="Trailer Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Booster Weight</label><input name="Booster Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
   </div>
 </fieldset>
+
+<script>
+(function () {
+  function toggleAxleWeightMode() {
+    const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
+    const perAxle = document.getElementById("axle-weights-per-axle");
+    const byGroup = document.getElementById("axle-weights-by-group");
+    if (!perAxle || !byGroup) return;
+
+    if (mode === "By Group") {
+      perAxle.style.display = "none";
+      byGroup.style.display = "";
+      perAxle.querySelectorAll("input").forEach(i => i.value = "");
+    } else {
+      byGroup.style.display = "none";
+      perAxle.style.display = "";
+      byGroup.querySelectorAll("input").forEach(i => i.value = "");
+    }
+  }
+
+  document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
+    r.addEventListener("change", toggleAxleWeightMode);
+  });
+
+  toggleAxleWeightMode();
+})();
+</script>
 
 <button type="submit">Submit Load</button>
 
