@@ -18,7 +18,7 @@ textarea { min-height: 90px; resize: vertical; }
 button { margin-top: 12px; padding: 14px; border: 0; border-radius: 10px; font-weight: 800; cursor: pointer; background: #111; color: #fff; }
 button:hover { opacity: .9; }
 .req { color: #b00020; margin-left: 6px; }
-.mode-row label { font-weight: 700; display: inline-flex; align-items: center; gap: 8px; margin-top: 0; }
+.mode-row label { display: inline-flex; align-items: center; gap: 8px; margin-top: 0; }
 .mode-row input[type="radio"] { width: auto; margin: 0; }
 @media (max-width: 900px) { .grid, .grid-4 { grid-template-columns: 1fr; } }
 </style>
@@ -30,6 +30,13 @@ button:hover { opacity: .9; }
 
 <form action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec" method="POST">
 
+<!-- DRIVER NAME (TOP) -->
+<fieldset>
+  <legend>Driver</legend>
+  <label>Name</label>
+  <input name="Name" />
+</fieldset>
+
 <!-- Trip Info -->
 <fieldset>
   <legend>Trip Info</legend>
@@ -38,25 +45,17 @@ button:hover { opacity: .9; }
       <label>Trip # <span class="req">*</span></label>
       <input name="Trip Number" required />
     </div>
-
     <div>
       <label>Date Loading <span class="req">*</span></label>
       <input type="date" name="Date Loading" required />
     </div>
-
     <div>
       <label>Origin <span class="req">*</span></label>
       <input name="Origin" required />
     </div>
-
     <div>
       <label>Destination <span class="req">*</span></label>
       <input name="Destination" required />
-    </div>
-
-    <div>
-      <label>Name</label>
-      <input name="Name" />
     </div>
   </div>
 </fieldset>
@@ -69,12 +68,10 @@ button:hover { opacity: .9; }
       <label>Load Make <span class="req">*</span></label>
       <input name="Load Make" required />
     </div>
-
     <div>
       <label>Load Model <span class="req">*</span></label>
       <input name="Load Model" required />
     </div>
-
     <div>
       <label>Serial Number <span class="req">*</span></label>
       <input name="Serial Number" required />
@@ -93,17 +90,14 @@ button:hover { opacity: .9; }
       <label>Overall Length <span class="req">*</span></label>
       <input name="Overall Length" required pattern="^\d{1,4}(-\d{1,2})?$" />
     </div>
-
     <div>
       <label>Trailer Length</label>
       <input name="Trailer Length" pattern="^\d{1,4}(-\d{1,2})?$" />
     </div>
-
     <div>
       <label>Overall Width <span class="req">*</span></label>
       <input name="Overall Width" required pattern="^\d{1,4}(-\d{1,2})?$" />
     </div>
-
     <div>
       <label>Overall Height <span class="req">*</span></label>
       <input name="Overall Height" required pattern="^\d{1,4}(-\d{1,2})?$" />
@@ -173,7 +167,6 @@ button:hover { opacity: .9; }
     <div><label>2-3 <span class="req">*</span></label><input name="2-3" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>3-4 <span class="req">*</span></label><input name="3-4" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>4-5 <span class="req">*</span></label><input name="4-5" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-
     <div><label>5-6</label><input name="5-6" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>6-7</label><input name="6-7" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>7-8</label><input name="7-8" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
@@ -183,88 +176,20 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Axle Weight Entry Mode -->
+<!-- Axle Weight Mode -->
 <fieldset>
   <legend>Axle Weight Entry</legend>
-  <div class="grid mode-row">
-    <div>
-      <label>
-        <input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked>
-        Per Axle
-      </label>
-    </div>
-    <div>
-      <label>
-        <input type="radio" name="Axle Weight Entry Mode" value="By Group">
-        By Group
-      </label>
-    </div>
+  <div class="mode-row">
+    <label><input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked> Per Axle</label>
+    <label><input type="radio" name="Axle Weight Entry Mode" value="By Group"> By Group</label>
   </div>
 </fieldset>
 
-<!-- Axle Weights (Per Axle) -->
-<fieldset id="axle-weights-per-axle">
-  <legend>Axle Weights</legend>
-  <div class="grid grid-4">
-    <div><label>Axle 1 Weight</label><input name="Axle 1 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 2 Weight</label><input name="Axle 2 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 3 Weight</label><input name="Axle 3 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 4 Weight</label><input name="Axle 4 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 5 Weight</label><input name="Axle 5 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 6 Weight</label><input name="Axle 6 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 7 Weight</label><input name="Axle 7 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 8 Weight</label><input name="Axle 8 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 9 Weight</label><input name="Axle 9 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 10 Weight</label><input name="Axle 10 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 11 Weight</label><input name="Axle 11 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-  </div>
-</fieldset>
-
-<!-- Axle Weights (By Group) -->
-<fieldset id="axle-weights-by-group" style="display:none;">
-  <legend>Axle Weight Groups</legend>
-  <div class="grid grid-4">
-    <div><label>Steers Weight</label><input name="Steers Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Drives Weight</label><input name="Drives Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Jeep Weight</label><input name="Jeep Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Trailer Weight</label><input name="Trailer Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Booster Weight</label><input name="Booster Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-  </div>
-</fieldset>
-
-<!-- Routing (Bottom) -->
+<!-- Routing -->
 <fieldset>
   <legend>Routing</legend>
-  <label>Routing Notes</label>
   <textarea name="Routing"></textarea>
 </fieldset>
-
-<script>
-(function () {
-  function toggleAxleWeightMode() {
-    const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
-    const perAxle = document.getElementById("axle-weights-per-axle");
-    const byGroup = document.getElementById("axle-weights-by-group");
-    if (!perAxle || !byGroup) return;
-
-    if (mode === "By Group") {
-      perAxle.style.display = "none";
-      byGroup.style.display = "";
-      perAxle.querySelectorAll("input").forEach(i => i.value = "");
-    } else {
-      byGroup.style.display = "none";
-      perAxle.style.display = "";
-      byGroup.querySelectorAll("input").forEach(i => i.value = "");
-    }
-  }
-
-  document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
-    r.addEventListener("change", toggleAxleWeightMode);
-  });
-
-  toggleAxleWeightMode();
-})();
-</script>
 
 <button type="submit">Submit Load</button>
 
