@@ -31,7 +31,7 @@ button:hover { opacity: .9; }
 
 <form action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec" method="POST">
 
-<!-- DRIVER NAME (TOP) -->
+<!-- DRIVER -->
 <fieldset>
   <legend>Driver</legend>
   <label>Name</label>
@@ -46,17 +46,14 @@ button:hover { opacity: .9; }
       <label>Trip # <span class="req">*</span></label>
       <input name="Trip Number" required />
     </div>
-
     <div>
       <label>Date Loading <span class="req">*</span></label>
       <input type="date" name="Date Loading" required />
     </div>
-
     <div>
       <label>Origin <span class="req">*</span></label>
       <input name="Origin" required />
     </div>
-
     <div>
       <label>Destination <span class="req">*</span></label>
       <input name="Destination" required />
@@ -64,7 +61,7 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Load Info (Description after Model, NOT textarea) -->
+<!-- Load Info -->
 <fieldset>
   <legend>Load Info</legend>
   <div class="grid grid-4">
@@ -178,13 +175,12 @@ button:hover { opacity: .9; }
     <div><label>2-3 <span class="req">*</span></label><input name="2-3" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>3-4 <span class="req">*</span></label><input name="3-4" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
     <div><label>4-5 <span class="req">*</span></label><input name="4-5" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-
-    <div><label>5-6</label><input name="5-6" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-    <div><label>6-7</label><input name="6-7" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-    <div><label>7-8</label><input name="7-8" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-    <div><label>8-9</label><input name="8-9" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-    <div><label>9-10</label><input name="9-10" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
-    <div><label>10-11</label><input name="10-11" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>5-6</label><input name="5-6" /></div>
+    <div><label>6-7</label><input name="6-7" /></div>
+    <div><label>7-8</label><input name="7-8" /></div>
+    <div><label>8-9</label><input name="8-9" /></div>
+    <div><label>9-10</label><input name="9-10" /></div>
+    <div><label>10-11</label><input name="10-11" /></div>
   </div>
 </fieldset>
 
@@ -197,50 +193,47 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Axle Weights (Per Axle) -->
+<!-- Axle Weights Per Axle -->
 <fieldset id="axle-weights-per-axle">
   <legend>Axle Weights</legend>
   <div class="grid grid-4">
-    <div><label>Axle 1 Weight</label><input name="Axle 1 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 2 Weight</label><input name="Axle 2 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 3 Weight</label><input name="Axle 3 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 4 Weight</label><input name="Axle 4 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 5 Weight</label><input name="Axle 5 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 6 Weight</label><input name="Axle 6 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 7 Weight</label><input name="Axle 7 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 8 Weight</label><input name="Axle 8 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 9 Weight</label><input name="Axle 9 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 10 Weight</label><input name="Axle 10 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Axle 11 Weight</label><input name="Axle 11 Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Axle 1 Weight</label><input name="Axle 1 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 2 Weight</label><input name="Axle 2 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 3 Weight</label><input name="Axle 3 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 4 Weight</label><input name="Axle 4 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 5 Weight</label><input name="Axle 5 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 6 Weight</label><input name="Axle 6 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 7 Weight</label><input name="Axle 7 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 8 Weight</label><input name="Axle 8 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 9 Weight</label><input name="Axle 9 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 10 Weight</label><input name="Axle 10 Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Axle 11 Weight</label><input name="Axle 11 Weight" inputmode="numeric" pattern="^\d+$" /></div>
   </div>
 </fieldset>
 
-<!-- Axle Weights (By Group) -->
+<!-- Axle Weights By Group -->
 <fieldset id="axle-weights-by-group" style="display:none;">
   <legend>Axle Weight Groups</legend>
   <div class="grid grid-4">
-    <div><label>Steers</label><input name="Steers Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Drives</label><input name="Drives Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Jeep</label><input name="Jeep Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Trailer</label><input name="Trailer Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
-    <div><label>Booster</label><input name="Booster Weight" inputmode="numeric" pattern="^\d{1,6}$" /></div>
+    <div><label>Steers</label><input name="Steers Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Drives</label><input name="Drives Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Jeep</label><input name="Jeep Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Trailer</label><input name="Trailer Weight" inputmode="numeric" pattern="^\d+$" /></div>
+    <div><label>Booster</label><input name="Booster Weight" inputmode="numeric" pattern="^\d+$" /></div>
   </div>
 </fieldset>
 
 <!-- Routing -->
 <fieldset>
   <legend>Routing</legend>
-  <label>Routing Notes</label>
   <textarea name="Routing"></textarea>
 </fieldset>
 
-<!-- Toggle axle weight mode -->
 <script>
 function toggleAxleWeightMode() {
-  const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
+  const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked').value;
   const perAxle = document.getElementById("axle-weights-per-axle");
   const byGroup = document.getElementById("axle-weights-by-group");
-  if (!perAxle || !byGroup) return;
 
   if (mode === "By Group") {
     perAxle.style.display = "none";
@@ -252,126 +245,12 @@ function toggleAxleWeightMode() {
     byGroup.querySelectorAll("input").forEach(i => i.value = "");
   }
 }
-(function () {
-  document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
-    r.addEventListener("change", toggleAxleWeightMode);
-  });
-  toggleAxleWeightMode();
-})();
-</script>
 
-<!-- Autosave (Name + Truck/Jeep/Trailer/Booster + Axle Spacings) -->
-<script>
-(function () {
-  const STORAGE_KEY = "loadFormSaved_v1";
+document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
+  r.addEventListener("change", toggleAxleWeightMode);
+});
 
-  const SAVE_NAMES = new Set([
-    "Name",
-
-    "Truck Number","Truck Year","Truck Make","Truck License","Truck VIN",
-    "Jeep Number","Jeep Year","Jeep Make","Jeep License","Jeep VIN",
-    "Trailer Number","Trailer Year","Trailer Make","Trailer License","Trailer VIN",
-    "Booster Number","Booster Year","Booster Make","Booster License","Booster VIN",
-
-    "1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10","10-11"
-  ]);
-
-  function els() {
-    return Array.from(document.querySelectorAll("input[name], textarea[name], select[name]"));
-  }
-
-  function saveNow() {
-    const payload = {};
-    els().forEach(el => {
-      if (!SAVE_NAMES.has(el.name)) return;
-
-      if (el.type === "radio") {
-        if (el.checked) payload[el.name] = el.value;
-      } else if (el.type === "checkbox") {
-        payload[el.name] = el.checked;
-      } else {
-        payload[el.name] = el.value;
-      }
-    });
-
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
-  }
-
-  function loadSaved() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      const saved = JSON.parse(raw);
-
-      els().forEach(el => {
-        if (!SAVE_NAMES.has(el.name)) return;
-        if (!(el.name in saved)) return;
-
-        if (el.type === "radio") {
-          el.checked = (el.value === saved[el.name]);
-        } else if (el.type === "checkbox") {
-          el.checked = !!saved[el.name];
-        } else {
-          el.value = saved[el.name];
-        }
-      });
-    } catch (e) {}
-  }
-
-  function addButtons() {
-    const form = document.querySelector("form");
-    if (!form) return;
-
-    const wrap = document.createElement("div");
-    wrap.style.display = "flex";
-    wrap.style.gap = "10px";
-    wrap.style.marginTop = "10px";
-    wrap.style.flexWrap = "wrap";
-
-    const saveBtn = document.createElement("button");
-    saveBtn.type = "button";
-    saveBtn.textContent = "Save Driver Info";
-    saveBtn.style.background = "#444";
-
-    const clearBtn = document.createElement("button");
-    clearBtn.type = "button";
-    clearBtn.textContent = "Clear Saved Info";
-    clearBtn.style.background = "#b00020";
-
-    saveBtn.addEventListener("click", () => {
-      saveNow();
-      alert("Saved on this device.");
-    });
-
-    clearBtn.addEventListener("click", () => {
-      localStorage.removeItem(STORAGE_KEY);
-      alert("Saved info cleared on this device.");
-    });
-
-    wrap.appendChild(saveBtn);
-    wrap.appendChild(clearBtn);
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn && submitBtn.parentNode) {
-      submitBtn.parentNode.insertBefore(wrap, submitBtn);
-    } else {
-      form.appendChild(wrap);
-    }
-  }
-
-  document.addEventListener("input", (evt) => {
-    const t = evt.target;
-    if (t && t.name && SAVE_NAMES.has(t.name)) saveNow();
-  }, true);
-
-  document.addEventListener("change", (evt) => {
-    const t = evt.target;
-    if (t && t.name && SAVE_NAMES.has(t.name)) saveNow();
-  }, true);
-
-  loadSaved();
-  addButtons();
-})();
+toggleAxleWeightMode();
 </script>
 
 <button type="submit">Submit Load</button>
