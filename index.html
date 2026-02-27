@@ -64,7 +64,7 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Load Info -->
+<!-- Load Info (Description after Model, NOT textarea) -->
 <fieldset>
   <legend>Load Info</legend>
   <div class="grid grid-4">
@@ -79,13 +79,15 @@ button:hover { opacity: .9; }
     </div>
 
     <div>
+      <label>Load Description <span class="req">*</span></label>
+      <input name="Load Description" required />
+    </div>
+
+    <div>
       <label>Serial Number <span class="req">*</span></label>
       <input name="Serial Number" required />
     </div>
   </div>
-
-  <label>Load Description <span class="req">*</span></label>
-  <textarea name="Load Description" required></textarea>
 </fieldset>
 
 <!-- Load Dimensions -->
@@ -225,14 +227,14 @@ button:hover { opacity: .9; }
   </div>
 </fieldset>
 
-<!-- Routing (Bottom) -->
+<!-- Routing -->
 <fieldset>
   <legend>Routing</legend>
   <label>Routing Notes</label>
   <textarea name="Routing"></textarea>
 </fieldset>
 
-<!-- Toggle axle weight mode (show one section, clear the hidden one) -->
+<!-- Toggle axle weight mode -->
 <script>
 function toggleAxleWeightMode() {
   const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
@@ -250,7 +252,6 @@ function toggleAxleWeightMode() {
     byGroup.querySelectorAll("input").forEach(i => i.value = "");
   }
 }
-
 (function () {
   document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
     r.addEventListener("change", toggleAxleWeightMode);
@@ -358,7 +359,6 @@ function toggleAxleWeightMode() {
     }
   }
 
-  // autosave on input/change
   document.addEventListener("input", (evt) => {
     const t = evt.target;
     if (t && t.name && SAVE_NAMES.has(t.name)) saveNow();
