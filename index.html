@@ -7,19 +7,21 @@
 
 <style>
 body{font-family:Arial,system-ui,sans-serif;margin:20px;max-width:1100px}
+h1{margin:0 0 10px}
 fieldset{border:1px solid #bbb;border-radius:10px;padding:14px;margin:16px 0}
 legend{font-weight:700;padding:0 8px}
 label{display:block;font-weight:700;margin-top:10px}
 input,textarea{width:100%;padding:10px;border:1px solid #bbb;border-radius:8px;margin-top:6px}
-textarea{min-height:90px}
+textarea{min-height:90px;resize:vertical}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .grid-4{grid-template-columns:repeat(4,1fr)}
 button{margin-top:12px;padding:14px;border:0;border-radius:10px;font-weight:800;cursor:pointer;background:#111;color:#fff}
 button:hover{opacity:.9}
 .req{color:#b00020;margin-left:6px}
 .mode-row{display:flex;gap:18px;flex-wrap:wrap}
-.mode-row input{width:auto}
-.save-row{display:flex;gap:10px;margin-top:10px}
+.mode-row label{display:inline-flex;align-items:center;gap:8px;margin-top:0;font-weight:700}
+.mode-row input[type="radio"]{width:auto;margin:0}
+.save-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .save-row button{background:#444}
 .save-row .clear{background:#b00020}
 @media(max-width:900px){.grid,.grid-4{grid-template-columns:1fr}}
@@ -31,246 +33,211 @@ button:hover{opacity:.9}
 <h1>Driver Load Details</h1>
 
 <form id="loadForm"
-action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec"
-method="POST">
+  action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec"
+  method="POST">
 
 <!-- DRIVER -->
 <fieldset>
-<legend>Driver</legend>
-<label>Name</label>
-<input name="Name">
+  <legend>Driver</legend>
+  <label>Name</label>
+  <input name="Name" autocomplete="name">
 </fieldset>
 
 <!-- TRIP -->
 <fieldset>
-<legend>Trip Info</legend>
-<div class="grid">
-<div>
-<label>Trip # <span class="req">*</span></label>
-<input name="Trip Number" required>
-</div>
-
-<div>
-<label>Date Loading <span class="req">*</span></label>
-<input type="date" name="Date Loading" required>
-</div>
-
-<div>
-<label>Origin <span class="req">*</span></label>
-<input name="Origin" required>
-</div>
-
-<div>
-<label>Destination <span class="req">*</span></label>
-<input name="Destination" required>
-</div>
-</div>
+  <legend>Trip Info</legend>
+  <div class="grid">
+    <div>
+      <label>Trip # <span class="req">*</span></label>
+      <input name="Trip Number" required>
+    </div>
+    <div>
+      <label>Date Loading <span class="req">*</span></label>
+      <input type="date" name="Date Loading" required>
+    </div>
+    <div>
+      <label>Origin <span class="req">*</span></label>
+      <input name="Origin" required>
+    </div>
+    <div>
+      <label>Destination <span class="req">*</span></label>
+      <input name="Destination" required>
+    </div>
+  </div>
 </fieldset>
 
 <!-- LOAD INFO -->
 <fieldset>
-<legend>Load Info</legend>
-<div class="grid grid-4">
-
-<div>
-<label>Load Make <span class="req">*</span></label>
-<input name="Load Make" required>
-</div>
-
-<div>
-<label>Load Model <span class="req">*</span></label>
-<input name="Load Model" required>
-</div>
-
-<div>
-<label>Load Description <span class="req">*</span></label>
-<input name="Load Description" required>
-</div>
-
-<div>
-<label>Serial Number <span class="req">*</span></label>
-<input name="Serial Number" required>
-</div>
-
-</div>
+  <legend>Load Info</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Load Make <span class="req">*</span></label>
+      <input name="Load Make" required>
+    </div>
+    <div>
+      <label>Load Model <span class="req">*</span></label>
+      <input name="Load Model" required>
+    </div>
+    <div>
+      <label>Load Description <span class="req">*</span></label>
+      <input name="Load Description" required>
+    </div>
+    <div>
+      <label>Serial Number <span class="req">*</span></label>
+      <input name="Serial Number" required>
+    </div>
+  </div>
 </fieldset>
 
 <!-- DIMENSIONS -->
 <fieldset>
-<legend>Load Dimensions</legend>
-
-<div class="grid grid-4">
-
-<div>
-<label>Overall Length <span class="req">*</span></label>
-<input name="Overall Length" required>
-</div>
-
-<div>
-<label>Trailer Length</label>
-<input name="Trailer Length">
-</div>
-
-<div>
-<label>Overall Width <span class="req">*</span></label>
-<input name="Overall Width" required>
-</div>
-
-<div>
-<label>Overall Height <span class="req">*</span></label>
-<input name="Overall Height" required>
-</div>
-
-</div>
+  <legend>Load Dimensions</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Overall Length <span class="req">*</span></label>
+      <input name="Overall Length" required inputmode="decimal">
+    </div>
+    <div>
+      <label>Trailer Length</label>
+      <input name="Trailer Length" inputmode="decimal">
+    </div>
+    <div>
+      <label>Overall Width <span class="req">*</span></label>
+      <input name="Overall Width" required inputmode="decimal">
+    </div>
+    <div>
+      <label>Overall Height <span class="req">*</span></label>
+      <input name="Overall Height" required inputmode="decimal">
+    </div>
+  </div>
 </fieldset>
 
 <!-- TRUCK -->
 <fieldset>
-<legend>Truck</legend>
-
-<div class="grid grid-4">
-
-<div>
-<label>Truck Number <span class="req">*</span></label>
-<input name="Truck Number" required>
-</div>
-
-<div><label>Truck Year</label><input name="Truck Year"></div>
-<div><label>Truck Make</label><input name="Truck Make"></div>
-<div><label>Truck License</label><input name="Truck License"></div>
-<div><label>Truck VIN</label><input name="Truck VIN"></div>
-
-</div>
-
+  <legend>Truck</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Truck Number <span class="req">*</span></label>
+      <input name="Truck Number" required>
+    </div>
+    <div><label>Truck Year</label><input name="Truck Year"></div>
+    <div><label>Truck Make</label><input name="Truck Make"></div>
+    <div><label>Truck License</label><input name="Truck License"></div>
+    <div><label>Truck VIN</label><input name="Truck VIN"></div>
+  </div>
 </fieldset>
 
 <!-- JEEP -->
 <fieldset>
-<legend>Jeep</legend>
-
-<div class="grid grid-4">
-
-<div><label>Jeep Number</label><input name="Jeep Number"></div>
-<div><label>Jeep Year</label><input name="Jeep Year"></div>
-<div><label>Jeep Make</label><input name="Jeep Make"></div>
-<div><label>Jeep License</label><input name="Jeep License"></div>
-<div><label>Jeep VIN</label><input name="Jeep VIN"></div>
-
-</div>
-
+  <legend>Jeep</legend>
+  <div class="grid grid-4">
+    <div><label>Jeep Number</label><input name="Jeep Number"></div>
+    <div><label>Jeep Year</label><input name="Jeep Year"></div>
+    <div><label>Jeep Make</label><input name="Jeep Make"></div>
+    <div><label>Jeep License</label><input name="Jeep License"></div>
+    <div><label>Jeep VIN</label><input name="Jeep VIN"></div>
+  </div>
 </fieldset>
 
 <!-- TRAILER -->
 <fieldset>
-<legend>Trailer</legend>
-
-<div class="grid grid-4">
-
-<div>
-<label>Trailer Number <span class="req">*</span></label>
-<input name="Trailer Number" required>
-</div>
-
-<div><label>Trailer Year</label><input name="Trailer Year"></div>
-<div><label>Trailer Make</label><input name="Trailer Make"></div>
-<div><label>Trailer License</label><input name="Trailer License"></div>
-<div><label>Trailer VIN</label><input name="Trailer VIN"></div>
-
-</div>
-
+  <legend>Trailer</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Trailer Number <span class="req">*</span></label>
+      <input name="Trailer Number" required>
+    </div>
+    <div><label>Trailer Year</label><input name="Trailer Year"></div>
+    <div><label>Trailer Make</label><input name="Trailer Make"></div>
+    <div><label>Trailer License</label><input name="Trailer License"></div>
+    <div><label>Trailer VIN</label><input name="Trailer VIN"></div>
+  </div>
 </fieldset>
 
 <!-- BOOSTER -->
 <fieldset>
-<legend>Booster</legend>
+  <legend>Booster</legend>
+  <div class="grid grid-4">
+    <div><label>Booster Number</label><input name="Booster Number"></div>
+    <div><label>Booster Year</label><input name="Booster Year"></div>
+    <div><label>Booster Make</label><input name="Booster Make"></div>
+    <div><label>Booster License</label><input name="Booster License"></div>
+    <div><label>Booster VIN</label><input name="Booster VIN"></div>
+  </div>
 
-<div class="grid grid-4">
-
-<div><label>Booster Number</label><input name="Booster Number"></div>
-<div><label>Booster Year</label><input name="Booster Year"></div>
-<div><label>Booster Make</label><input name="Booster Make"></div>
-<div><label>Booster License</label><input name="Booster License"></div>
-<div><label>Booster VIN</label><input name="Booster VIN"></div>
-
-</div>
-
-<div class="save-row">
-<button type="button" id="saveEquipBtn">Save Truck / Trailer Info</button>
-<button type="button" class="clear" id="clearEquipBtn">Clear Truck / Trailer Info</button>
-</div>
-
+  <div class="save-row">
+    <button type="button" id="saveEquipBtn">Save Truck / Trailer Info</button>
+    <button type="button" class="clear" id="clearEquipBtn">Clear Truck / Trailer Info</button>
+  </div>
 </fieldset>
 
-<!-- AXLE SPACING -->
+<!-- AXLE SPACINGS -->
 <fieldset>
+  <legend>Axle Spacings</legend>
 
-<legend>Axle Spacings</legend>
+  <div class="grid">
+    <div><label>1-2 <span class="req">*</span></label><input name="1-2" required inputmode="decimal"></div>
+    <div><label>2-3 <span class="req">*</span></label><input name="2-3" required inputmode="decimal"></div>
+    <div><label>3-4 <span class="req">*</span></label><input name="3-4" required inputmode="decimal"></div>
+    <div><label>4-5 <span class="req">*</span></label><input name="4-5" required inputmode="decimal"></div>
 
-<div class="grid">
+    <div><label>5-6</label><input name="5-6" inputmode="decimal"></div>
+    <div><label>6-7</label><input name="6-7" inputmode="decimal"></div>
+    <div><label>7-8</label><input name="7-8" inputmode="decimal"></div>
+    <div><label>8-9</label><input name="8-9" inputmode="decimal"></div>
+    <div><label>9-10</label><input name="9-10" inputmode="decimal"></div>
+    <div><label>10-11</label><input name="10-11" inputmode="decimal"></div>
+  </div>
 
-<div><label>1-2 *</label><input name="1-2" required></div>
-<div><label>2-3 *</label><input name="2-3" required></div>
-<div><label>3-4 *</label><input name="3-4" required></div>
-<div><label>4-5 *</label><input name="4-5" required></div>
-
-<div><label>5-6</label><input name="5-6"></div>
-<div><label>6-7</label><input name="6-7"></div>
-<div><label>7-8</label><input name="7-8"></div>
-<div><label>8-9</label><input name="8-9"></div>
-<div><label>9-10</label><input name="9-10"></div>
-<div><label>10-11</label><input name="10-11"></div>
-
-</div>
-
-<div class="save-row">
-<button type="button" id="saveAxlesBtn">Save Axle Spacings</button>
-<button type="button" class="clear" id="clearAxlesBtn">Clear Axle Spacings</button>
-</div>
-
+  <div class="save-row">
+    <button type="button" id="saveAxlesBtn">Save Axle Spacings</button>
+    <button type="button" class="clear" id="clearAxlesBtn">Clear Axle Spacings</button>
+  </div>
 </fieldset>
 
-<!-- AXLE WEIGHT MODE -->
+<!-- AXLE WEIGHT ENTRY -->
 <fieldset>
-
-<legend>Axle Weight Entry</legend>
-
-<div class="mode-row">
-
-<label><input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked> Per Axle</label>
-
-<label><input type="radio" name="Axle Weight Entry Mode" value="By Group"> By Group</label>
-
-</div>
-
+  <legend>Axle Weight Entry</legend>
+  <div class="mode-row">
+    <label><input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked> Per Axle</label>
+    <label><input type="radio" name="Axle Weight Entry Mode" value="By Group"> By Group</label>
+  </div>
 </fieldset>
 
-<!-- AXLE WEIGHTS -->
+<!-- AXLE WEIGHTS: PER AXLE -->
 <fieldset id="axle-weights-per-axle">
+  <legend>Axle Weights</legend>
+  <div class="grid grid-4">
+    <div><label>Axle 1</label><input name="Axle 1 Weight" inputmode="decimal"></div>
+    <div><label>Axle 2</label><input name="Axle 2 Weight" inputmode="decimal"></div>
+    <div><label>Axle 3</label><input name="Axle 3 Weight" inputmode="decimal"></div>
+    <div><label>Axle 4</label><input name="Axle 4 Weight" inputmode="decimal"></div>
+    <div><label>Axle 5</label><input name="Axle 5 Weight" inputmode="decimal"></div>
+    <div><label>Axle 6</label><input name="Axle 6 Weight" inputmode="decimal"></div>
+    <div><label>Axle 7</label><input name="Axle 7 Weight" inputmode="decimal"></div>
+    <div><label>Axle 8</label><input name="Axle 8 Weight" inputmode="decimal"></div>
+    <div><label>Axle 9</label><input name="Axle 9 Weight" inputmode="decimal"></div>
+    <div><label>Axle 10</label><input name="Axle 10 Weight" inputmode="decimal"></div>
+    <div><label>Axle 11</label><input name="Axle 11 Weight" inputmode="decimal"></div>
+  </div>
+</fieldset>
 
-<legend>Axle Weights</legend>
-
-<div class="grid grid-4">
-
-<div><label>Axle 1</label><input name="Axle 1 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 2</label><input name="Axle 2 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 3</label><input name="Axle 3 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 4</label><input name="Axle 4 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 5</label><input name="Axle 5 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 6</label><input name="Axle 6 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 7</label><input name="Axle 7 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 8</label><input name="Axle 8 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 9</label><input name="Axle 9 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 10</label><input name="Axle 10 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-<div><label>Axle 11</label><input name="Axle 11 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$"></div>
-
-</div>
-
+<!-- AXLE WEIGHTS: BY GROUP -->
+<fieldset id="axle-weights-by-group" style="display:none;">
+  <legend>Axle Weight Groups</legend>
+  <div class="grid grid-4">
+    <div><label>Steers</label><input name="Steers Weight" inputmode="decimal"></div>
+    <div><label>Drives</label><input name="Drives Weight" inputmode="decimal"></div>
+    <div><label>Jeep</label><input name="Jeep Weight" inputmode="decimal"></div>
+    <div><label>Trailer</label><input name="Trailer Weight" inputmode="decimal"></div>
+    <div><label>Booster</label><input name="Booster Weight" inputmode="decimal"></div>
+  </div>
 </fieldset>
 
 <!-- ROUTING -->
 <fieldset>
-<legend>Routing</legend>
-<textarea name="Routing"></textarea>
+  <legend>Routing</legend>
+  <textarea name="Routing"></textarea>
 </fieldset>
 
 <button type="submit">Submit Load</button>
@@ -278,57 +245,211 @@ method="POST">
 </form>
 
 <script>
+/* ========= toggle axle weight mode ========= */
+function toggleAxleWeightMode(){
+  const mode=document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value||"Per Axle"
+  const perAxle=document.getElementById("axle-weights-per-axle")
+  const byGroup=document.getElementById("axle-weights-by-group")
+  if(!perAxle||!byGroup) return
 
-const EQUIP_KEY="savedTruckTrailer_v1"
-const AXLE_KEY="savedAxles_v1"
+  if(mode==="By Group"){
+    perAxle.style.display="none"
+    byGroup.style.display=""
+    perAxle.querySelectorAll("input").forEach(i=>i.value="")
+  }else{
+    byGroup.style.display="none"
+    perAxle.style.display=""
+    byGroup.querySelectorAll("input").forEach(i=>i.value="")
+  }
+}
+document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r=>{
+  r.addEventListener("change",toggleAxleWeightMode)
+})
+toggleAxleWeightMode()
 
-const equipFields=[
-"Name",
-"Truck Number","Truck Year","Truck Make","Truck License","Truck VIN",
-"Jeep Number","Jeep Year","Jeep Make","Jeep License","Jeep VIN",
-"Trailer Number","Trailer Year","Trailer Make","Trailer License","Trailer VIN",
-"Booster Number","Booster Year","Booster Make","Booster License","Booster VIN"
-]
-
-const axleFields=["1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10","10-11"]
-
+/* ========= saving helpers ========= */
 function saveFields(key,fields){
-let data={}
-fields.forEach(f=>{
-let el=document.querySelector(`[name="${f}"]`)
-if(el)data[f]=el.value
-})
-localStorage.setItem(key,JSON.stringify(data))
-alert("Saved")
+  const data={}
+  fields.forEach(f=>{
+    const el=document.querySelector(`[name="${CSS.escape(f)}"]`)
+    if(el) data[f]=el.value
+  })
+  localStorage.setItem(key,JSON.stringify(data))
+  alert("Saved on this device.")
 }
-
 function loadFields(key){
-let raw=localStorage.getItem(key)
-if(!raw)return
-let data=JSON.parse(raw)
-Object.keys(data).forEach(k=>{
-let el=document.querySelector(`[name="${k}"]`)
-if(el)el.value=data[k]
-})
+  const raw=localStorage.getItem(key)
+  if(!raw) return
+  try{
+    const data=JSON.parse(raw)
+    Object.keys(data).forEach(k=>{
+      const el=document.querySelector(`[name="${CSS.escape(k)}"]`)
+      if(el) el.value=data[k]
+    })
+  }catch(e){}
 }
-
 function clearFields(key,fields){
-localStorage.removeItem(key)
-fields.forEach(f=>{
-let el=document.querySelector(`[name="${f}"]`)
-if(el)el.value=""
-})
+  localStorage.removeItem(key)
+  fields.forEach(f=>{
+    const el=document.querySelector(`[name="${CSS.escape(f)}"]`)
+    if(el) el.value=""
+  })
+  alert("Cleared.")
 }
 
-document.getElementById("saveEquipBtn").onclick=()=>saveFields(EQUIP_KEY,equipFields)
-document.getElementById("clearEquipBtn").onclick=()=>clearFields(EQUIP_KEY,equipFields)
+/* ========= save truck/trailer (actually saves name + truck + jeep + trailer + booster) ========= */
+const EQUIP_KEY="savedTruckTrailer_v1"
+const equipFields=[
+  "Name",
+  "Truck Number","Truck Year","Truck Make","Truck License","Truck VIN",
+  "Jeep Number","Jeep Year","Jeep Make","Jeep License","Jeep VIN",
+  "Trailer Number","Trailer Year","Trailer Make","Trailer License","Trailer VIN",
+  "Booster Number","Booster Year","Booster Make","Booster License","Booster VIN"
+]
+document.getElementById("saveEquipBtn").addEventListener("click",()=>saveFields(EQUIP_KEY,equipFields))
+document.getElementById("clearEquipBtn").addEventListener("click",()=>clearFields(EQUIP_KEY,equipFields))
 
-document.getElementById("saveAxlesBtn").onclick=()=>saveFields(AXLE_KEY,axleFields)
-document.getElementById("clearAxlesBtn").onclick=()=>clearFields(AXLE_KEY,axleFields)
+/* ========= save axle spacings ========= */
+const AXLE_KEY="savedAxles_v1"
+const axleFields=["1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10","10-11"]
+document.getElementById("saveAxlesBtn").addEventListener("click",()=>saveFields(AXLE_KEY,axleFields))
+document.getElementById("clearAxlesBtn").addEventListener("click",()=>clearFields(AXLE_KEY,axleFields))
 
+/* load saved values on page open */
 loadFields(EQUIP_KEY)
 loadFields(AXLE_KEY)
 
+/* ========= axle spacing auto-format while typing ========= */
+const spacingFields=["1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10","10-11"]
+function cleanSpacing(v){
+  v=(v||"").trim()
+  v=v.replace(/,/g,"-")
+  v=v.replace(/\s+/g,"-")
+  v=v.replace(/-+/g,"-")
+  v=v.replace(/[^0-9.\-]/g,"")
+  return v
+}
+spacingFields.forEach(name=>{
+  const el=document.querySelector(`[name="${CSS.escape(name)}"]`)
+  if(!el) return
+  el.addEventListener("input",function(){
+    this.value=cleanSpacing(this.value)
+  })
+})
+
+/* ========= dimension auto-format on blur (feet-inches dashes, inches->feet-inches) ========= */
+const dimFields=["Overall Length","Overall Width","Overall Height","Trailer Length"]
+
+function inchesToFeetInches(total){
+  total=parseFloat(total)
+  if(!Number.isFinite(total)) return ""
+  let feet=Math.floor(total/12)
+  let inches=Math.round(total%12)
+  if(inches===12){ feet++; inches=0 }
+  return `${feet}-${inches}`
+}
+
+function formatDim(v){
+  if(!v) return ""
+  v=String(v).trim().toLowerCase()
+  v=v.replace(/[’‘]/g,"'").replace(/[“”]/g,'"')
+  v=v.replace(/,/g,"-").replace(/\s+/g,"-").replace(/-+/g,"-")
+
+  // explicit inches
+  if(v.includes('"') || /\bin\b/.test(v) || v.includes("inches")){
+    const num=parseFloat(v)
+    if(!isNaN(num)) return inchesToFeetInches(num)
+  }
+
+  // plain number
+  if(/^\d+(\.\d+)?$/.test(v)){
+    const num=parseFloat(v)
+
+    // Overall Length only: if >125, treat as inches (you told me max is 125 ft)
+    // For other dims, this still helps if someone types 170 meaning inches.
+    if(num>125) return inchesToFeetInches(num)
+
+    // decimal feet -> inches
+    if(v.includes(".")){
+      const feet=Math.floor(num)
+      let inches=Math.round((num-feet)*12)
+      if(inches===12) return `${feet+1}-0`
+      return `${feet}-${inches}`
+    }
+
+    return v
+  }
+
+  // dash format
+  if(/^\d+-\d+$/.test(v)){
+    const [f,i]=v.split("-")
+    const feet=parseInt(f,10)
+    const inches=parseInt(i,10)
+    if(Number.isFinite(feet) && Number.isFinite(inches)){
+      if(inches>=12){
+        return inchesToFeetInches((feet*12)+inches)
+      }
+      return `${feet}-${inches}`
+    }
+  }
+
+  return v
+}
+
+dimFields.forEach(name=>{
+  const el=document.querySelector(`[name="${CSS.escape(name)}"]`)
+  if(!el) return
+  el.addEventListener("blur",function(){
+    this.value=formatDim(this.value)
+  })
+})
+
+/* ========= submit-time cleanup + validation =========
+   - axle weights: strip commas/spaces, allow up to 5 decimals
+   - axle spacings: ensure cleaned result is valid (optional but helps)
+*/
+const weightNames=[
+  "Axle 1 Weight","Axle 2 Weight","Axle 3 Weight","Axle 4 Weight","Axle 5 Weight",
+  "Axle 6 Weight","Axle 7 Weight","Axle 8 Weight","Axle 9 Weight","Axle 10 Weight","Axle 11 Weight",
+  "Steers Weight","Drives Weight","Jeep Weight","Trailer Weight","Booster Weight"
+]
+const weightRe=/^\d+(\.\d{1,5})?$/
+const spacingRe=/^\d+(\.\d{1,5})?$|^\d+-\d{1,2}$/
+
+document.getElementById("loadForm").addEventListener("submit",function(e){
+
+  // clean/validate axle spacings
+  for(const n of spacingFields){
+    const el=document.querySelector(`[name="${CSS.escape(n)}"]`)
+    if(!el) continue
+    let v=(el.value||"").trim()
+    if(!v) continue
+    v=cleanSpacing(v)
+    el.value=v
+    if(!spacingRe.test(v)){
+      e.preventDefault()
+      alert(`Check axle spacing "${n}". Examples: 14, 14-0, 14.5`)
+      el.focus()
+      return
+    }
+  }
+
+  // clean/validate weights
+  for(const n of weightNames){
+    const el=document.querySelector(`[name="${CSS.escape(n)}"]`)
+    if(!el) continue
+    let v=(el.value||"").trim()
+    if(!v) continue
+    v=v.replace(/,/g,"").replace(/\s+/g,"")
+    el.value=v
+    if(!weightRe.test(v)){
+      e.preventDefault()
+      alert(`Check "${n}". Use numbers with up to 5 decimals (no commas).`)
+      el.focus()
+      return
+    }
+  }
+})
 </script>
 
 </body>
