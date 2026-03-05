@@ -32,7 +32,9 @@ button:hover { opacity: .9; }
 
 <h1>Driver Load Details</h1>
 
-<form id="loadForm" action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec" method="POST">
+<form id="loadForm"
+  action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec"
+  method="POST">
 
 <!-- DRIVER -->
 <fieldset>
@@ -60,6 +62,274 @@ button:hover { opacity: .9; }
     <div>
       <label>Destination <span class="req">*</span></label>
       <input name="Destination" required />
+    </div>
+  </div>
+</fieldset>
+
+<!-- Load Info -->
+<fieldset>
+  <legend>Load Info</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Load Make <span class="req">*</span></label>
+      <input name="Load Make" required />
+    </div>
+    <div>
+      <label>Load Model <span class="req">*</span></label>
+      <input name="Load Model" required />
+    </div>
+    <div>
+      <label>Load Description <span class="req">*</span></label>
+      <input name="Load Description" required />
+    </div>
+    <div>
+      <label>Serial Number <span class="req">*</span></label>
+      <input name="Serial Number" required />
+    </div>
+  </div>
+</fieldset>
+
+<!-- Load Dimensions -->
+<fieldset>
+  <legend>Load Dimensions</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Overall Length <span class="req">*</span></label>
+      <input name="Overall Length" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+    <div>
+      <label>Trailer Length</label>
+      <input name="Trailer Length" pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+    <div>
+      <label>Overall Width <span class="req">*</span></label>
+      <input name="Overall Width" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+    <div>
+      <label>Overall Height <span class="req">*</span></label>
+      <input name="Overall Height" required pattern="^\d{1,4}(-\d{1,2})?$" />
+    </div>
+  </div>
+</fieldset>
+
+<!-- Truck -->
+<fieldset>
+  <legend>Truck</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Truck Number <span class="req">*</span></label>
+      <input name="Truck Number" required />
+    </div>
+    <div><label>Truck Year</label><input name="Truck Year" /></div>
+    <div><label>Truck Make</label><input name="Truck Make" /></div>
+    <div><label>Truck License</label><input name="Truck License" /></div>
+    <div><label>Truck VIN</label><input name="Truck VIN" /></div>
+  </div>
+</fieldset>
+
+<!-- Jeep -->
+<fieldset>
+  <legend>Jeep</legend>
+  <div class="grid grid-4">
+    <div><label>Jeep Number</label><input name="Jeep Number" /></div>
+    <div><label>Jeep Year</label><input name="Jeep Year" /></div>
+    <div><label>Jeep Make</label><input name="Jeep Make" /></div>
+    <div><label>Jeep License</label><input name="Jeep License" /></div>
+    <div><label>Jeep VIN</label><input name="Jeep VIN" /></div>
+  </div>
+</fieldset>
+
+<!-- Trailer -->
+<fieldset>
+  <legend>Trailer</legend>
+  <div class="grid grid-4">
+    <div>
+      <label>Trailer Number <span class="req">*</span></label>
+      <input name="Trailer Number" required />
+    </div>
+    <div><label>Trailer Year</label><input name="Trailer Year" /></div>
+    <div><label>Trailer Make</label><input name="Trailer Make" /></div>
+    <div><label>Trailer License</label><input name="Trailer License" /></div>
+    <div><label>Trailer VIN</label><input name="Trailer VIN" /></div>
+  </div>
+</fieldset>
+
+<!-- Booster -->
+<fieldset>
+  <legend>Booster</legend>
+  <div class="grid grid-4">
+    <div><label>Booster Number</label><input name="Booster Number" /></div>
+    <div><label>Booster Year</label><input name="Booster Year" /></div>
+    <div><label>Booster Make</label><input name="Booster Make" /></div>
+    <div><label>Booster License</label><input name="Booster License" /></div>
+    <div><label>Booster VIN</label><input name="Booster VIN" /></div>
+  </div>
+</fieldset>
+
+<!-- Axle Spacings -->
+<fieldset>
+  <legend>Axle Spacings</legend>
+  <div class="grid">
+    <div><label>1-2 <span class="req">*</span></label><input name="1-2" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>2-3 <span class="req">*</span></label><input name="2-3" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>3-4 <span class="req">*</span></label><input name="3-4" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>4-5 <span class="req">*</span></label><input name="4-5" required pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+
+    <div><label>5-6</label><input name="5-6" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>6-7</label><input name="6-7" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>7-8</label><input name="7-8" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>8-9</label><input name="8-9" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>9-10</label><input name="9-10" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+    <div><label>10-11</label><input name="10-11" pattern="^\d{1,4}(-\d{1,2})?$" /></div>
+  </div>
+</fieldset>
+
+<!-- Axle Weight Entry Mode -->
+<fieldset>
+  <legend>Axle Weight Entry</legend>
+  <div class="mode-row">
+    <label><input type="radio" name="Axle Weight Entry Mode" value="Per Axle" checked> Per Axle</label>
+    <label><input type="radio" name="Axle Weight Entry Mode" value="By Group"> By Group</label>
+  </div>
+</fieldset>
+
+<!-- Axle Weights (Per Axle) -->
+<fieldset id="axle-weights-per-axle">
+  <legend>Axle Weights</legend>
+  <div class="grid grid-4">
+    <div><label>Axle 1 Weight</label><input name="Axle 1 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 2 Weight</label><input name="Axle 2 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 3 Weight</label><input name="Axle 3 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 4 Weight</label><input name="Axle 4 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 5 Weight</label><input name="Axle 5 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 6 Weight</label><input name="Axle 6 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 7 Weight</label><input name="Axle 7 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 8 Weight</label><input name="Axle 8 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 9 Weight</label><input name="Axle 9 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 10 Weight</label><input name="Axle 10 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Axle 11 Weight</label><input name="Axle 11 Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+  </div>
+</fieldset>
+
+<!-- Axle Weights (By Group) -->
+<fieldset id="axle-weights-by-group" style="display:none;">
+  <legend>Axle Weight Groups</legend>
+  <div class="grid grid-4">
+    <div><label>Steers</label><input name="Steers Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Drives</label><input name="Drives Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Jeep</label><input name="Jeep Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Trailer</label><input name="Trailer Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+    <div><label>Booster</label><input name="Booster Weight" inputmode="decimal" pattern="^\d+(\.\d{1,2})?$" /></div>
+  </div>
+</fieldset>
+
+<!-- Routing -->
+<fieldset>
+  <legend>Routing</legend>
+  <textarea name="Routing"></textarea>
+</fieldset>
+
+<!-- Save buttons -->
+<fieldset>
+  <legend>Save Defaults (This Device)</legend>
+  <div class="save-row">
+    <button type="button" id="saveEquipBtn">Save Equipment Only</button>
+    <button type="button" id="saveEquipAxlesBtn">Save Equipment + Axle Spacings</button>
+    <button type="button" class="clear" id="clearSavedBtn">Clear Saved</button>
+  </div>
+</fieldset>
+
+<script>
+function toggleAxleWeightMode() {
+  const mode = document.querySelector('input[name="Axle Weight Entry Mode"]:checked')?.value || "Per Axle";
+  const perAxle = document.getElementById("axle-weights-per-axle");
+  const byGroup = document.getElementById("axle-weights-by-group");
+  if (!perAxle || !byGroup) return;
+
+  if (mode === "By Group") {
+    perAxle.style.display = "none";
+    byGroup.style.display = "";
+    perAxle.querySelectorAll("input").forEach(i => i.value = "");
+  } else {
+    byGroup.style.display = "none";
+    perAxle.style.display = "";
+    byGroup.querySelectorAll("input").forEach(i => i.value = "");
+  }
+}
+document.querySelectorAll('input[name="Axle Weight Entry Mode"]').forEach(r => {
+  r.addEventListener("change", toggleAxleWeightMode);
+});
+toggleAxleWeightMode();
+</script>
+
+<script>
+(function () {
+  const KEY_EQUIP = "savedEquip_v1";
+  const KEY_EQUIP_AXLES = "savedEquipAxles_v1";
+
+  const EQUIP_FIELDS = [
+    "Name",
+    "Truck Number","Truck Year","Truck Make","Truck License","Truck VIN",
+    "Jeep Number","Jeep Year","Jeep Make","Jeep License","Jeep VIN",
+    "Trailer Number","Trailer Year","Trailer Make","Trailer License","Trailer VIN",
+    "Booster Number","Booster Year","Booster Make","Booster License","Booster VIN"
+  ];
+
+  const AXLE_SPACING_FIELDS = ["1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10","10-11"];
+
+  function controls() {
+    return Array.from(document.querySelectorAll("input[name], textarea[name], select[name]"));
+  }
+  function getControl(name) {
+    return document.querySelector(`[name="${CSS.escape(name)}"]`);
+  }
+
+  function save(key, names) {
+    const payload = {};
+    names.forEach(n => {
+      const el = getControl(n);
+      payload[n] = el ? el.value : "";
+    });
+    try { localStorage.setItem(key, JSON.stringify(payload)); } catch (e) {}
+    alert("Saved on this device.");
+  }
+
+  function loadAny() {
+    // Prefer "equip+axles" if present, otherwise equip-only
+    const rawAx = localStorage.getItem(KEY_EQUIP_AXLES);
+    const rawEq = localStorage.getItem(KEY_EQUIP);
+
+    const raw = rawAx || rawEq;
+    if (!raw) return;
+
+    try {
+      const saved = JSON.parse(raw);
+      Object.keys(saved).forEach(n => {
+        const el = getControl(n);
+        if (el) el.value = saved[n];
+      });
+    } catch (e) {}
+  }
+
+  function clearAll() {
+    localStorage.removeItem(KEY_EQUIP);
+    localStorage.removeItem(KEY_EQUIP_AXLES);
+    alert("Saved info cleared.");
+  }
+
+  document.getElementById("saveEquipBtn").addEventListener("click", () => save(KEY_EQUIP, EQUIP_FIELDS));
+  document.getElementById("saveEquipAxlesBtn").addEventListener("click", () => save(KEY_EQUIP_AXLES, [...EQUIP_FIELDS, ...AXLE_SPACING_FIELDS]));
+  document.getElementById("clearSavedBtn").addEventListener("click", clearAll);
+
+  loadAny();
+})();
+</script>
+
+<button type="submit">Submit Load</button>
+
+</form>
+</body>
+</html>      <input name="Destination" required />
     </div>
   </div>
 </fieldset>
