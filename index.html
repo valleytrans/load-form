@@ -7,7 +7,8 @@
 
 <style>
 body{font-family:Arial,system-ui,sans-serif;margin:20px;max-width:1100px}
-h1{margin:0 0 10px}
+h1{margin:0 0 6px}
+.note{font-size:13px;color:#777;margin-bottom:15px}
 fieldset{border:1px solid #bbb;border-radius:10px;padding:14px;margin:16px 0}
 legend{font-weight:700;padding:0 8px}
 label{display:block;font-weight:700;margin-top:10px}
@@ -31,6 +32,7 @@ button:hover{opacity:.9}
 <body>
 
 <h1>Driver Load Details</h1>
+<div class="note"><span class="req">*</span> Required fields</div>
 
 <form id="loadForm"
   action="https://script.google.com/macros/s/AKfycbxd49k4KNXDe3ub0V9QuDgwtRHJJt3c-Hc6agSHryBw6RANihybnB9FgQMdD_e1rsEV/exec"
@@ -337,7 +339,7 @@ spacingFields.forEach(name=>{
   })
 })
 
-/* ========= dimension auto-format on blur (feet-inches dashes, inches->feet-inches) ========= */
+/* ========= dimension auto-format on blur ========= */
 const dimFields=["Overall Length","Overall Width","Overall Height","Trailer Length"]
 
 function inchesToFeetInches(total){
@@ -355,18 +357,15 @@ function formatDim(v){
   v=v.replace(/[’‘]/g,"'").replace(/[“”]/g,'"')
   v=v.replace(/,/g,"-").replace(/\s+/g,"-").replace(/-+/g,"-")
 
-  // explicit inches
   if(v.includes('"') || /\bin\b/.test(v) || v.includes("inches")){
     const num=parseFloat(v)
     if(!isNaN(num)) return inchesToFeetInches(num)
   }
 
-  // plain number
   if(/^\d+(\.\d+)?$/.test(v)){
     const num=parseFloat(v)
 
-    // Overall Length only: if >125, treat as inches (you told me max is 125 ft)
-    // For other dims, this still helps if someone types 170 meaning inches.
+    // if larger than 125, assume inches
     if(num>125) return inchesToFeetInches(num)
 
     // decimal feet -> inches
@@ -380,7 +379,6 @@ function formatDim(v){
     return v
   }
 
-  // dash format
   if(/^\d+-\d+$/.test(v)){
     const [f,i]=v.split("-")
     const feet=parseInt(f,10)
@@ -404,10 +402,7 @@ dimFields.forEach(name=>{
   })
 })
 
-/* ========= submit-time cleanup + validation =========
-   - axle weights: strip commas/spaces, allow up to 5 decimals
-   - axle spacings: ensure cleaned result is valid (optional but helps)
-*/
+/* ========= submit-time cleanup + validation ========= */
 const weightNames=[
   "Axle 1 Weight","Axle 2 Weight","Axle 3 Weight","Axle 4 Weight","Axle 5 Weight",
   "Axle 6 Weight","Axle 7 Weight","Axle 8 Weight","Axle 9 Weight","Axle 10 Weight","Axle 11 Weight",
@@ -418,7 +413,6 @@ const spacingRe=/^\d+(\.\d{1,5})?$|^\d+-\d{1,2}$/
 
 document.getElementById("loadForm").addEventListener("submit",function(e){
 
-  // clean/validate axle spacings
   for(const n of spacingFields){
     const el=document.querySelector(`[name="${CSS.escape(n)}"]`)
     if(!el) continue
@@ -434,7 +428,6 @@ document.getElementById("loadForm").addEventListener("submit",function(e){
     }
   }
 
-  // clean/validate weights
   for(const n of weightNames){
     const el=document.querySelector(`[name="${CSS.escape(n)}"]`)
     if(!el) continue
